@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Pattern Primer</title>
+{% for css in global_css %}
+<link rel="stylesheet" href="{{css}}">
+{% endfor %}
+<style>
+.pattern {
+    clear: both;
+    overflow: hidden;
+}
+.pattern .display {
+    width: 65%;
+    float: left;
+}
+.pattern .source {
+    width: 30%;
+    float: right;
+}
+.pattern .source textarea {
+    width: 90%;
+}
+</style>
+</head>
+<body>
+
+{% for pattern in patterns %}
+<div class="pattern">
+<div class="display">
+{{pattern.content|safe}}
+</div>
+<div class="source">
+<textarea rows="6" cols="30">{{pattern.content}}</textarea>
+<p><a href="{{pattern.url}}">{{pattern.filename}}</a></p>
+</div>
+</div>
+{% endfor %}
+</body>
+</html>
